@@ -1,12 +1,18 @@
-application: hellogae
+application: appname
 version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
 
+libraries:
+- name: jinja2
+  version: latest
+
 handlers:
 - url: /static
   static_dir: static
+- url: /test
+  script: tests.handler.app
 - url: /.*
-  script: processo.app
+  script: main.app
 
